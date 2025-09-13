@@ -12,9 +12,9 @@ import com.aventstack.extentreports.*;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.testng.annotations.*;
 import Test.HomePage;
-import Test.ProductPage;
+import Test.ProductPageTest;
 
-public class SeleniumTest {
+public class SeleniumTests {
 	//private static final String FileUtils = null;
 
 	//WebDriver driver=new ChromeDriver();
@@ -43,15 +43,15 @@ public class SeleniumTest {
    @Test
    void validateTitle_OnlineProducts() throws IOException {
 	   test=extent.createTest("Validate Shoe Title on Product Page","This test validates that the different Shoetypes are correct on Online Products");
-	   ProductPage.formalShoes_verifyTitle();
-	   ProductPage.sportsShoes_verifyTitle();
-	   ProductPage.sneakers_verifyTitle();
+	   ProductPageTest.formalShoes_verifyTitle();
+	   ProductPageTest.sportsShoes_verifyTitle();
+	   ProductPageTest.sneakers_verifyTitle();
 	   extent.flush();	   
    }   
    @Test
    void validateFirstFormalShoes() {
 	   test=extent.createTest("Validate First Formal Shoe","This test validates that the first formal shoe");
-	   ProductPage.formalShoes_firstname_verify();
+	   ProductPageTest.formalShoes_firstname_verify();
 	   extent.flush();
 	   
 	  
@@ -59,13 +59,13 @@ public class SeleniumTest {
    @Test
    void validateFirstSportsShoes() {
 	   test=extent.createTest("Validate First Sports Shoe","This test validates that the first sports shoe");
-	   ProductPage.sportsShoes_firstname_verify();
+	   ProductPageTest.sportsShoes_firstname_verify();
 	   extent.flush();
 }
   @Test
   void validateFirstSneakersShoes() {
 	  test=extent.createTest("Validate First Sneakers Shoe","This test validates that the first sneakers shoe");
-	  ProductPage.SneakersShoes_firstname_verify();
+	  ProductPageTest.SneakersShoes_firstname_verify();
 	  extent.flush();
   }
   public static void cleanup() {
