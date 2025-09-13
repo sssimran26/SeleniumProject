@@ -1,6 +1,6 @@
 package Test;
 
-import static Test.SeleniumTest.driver;
+import static Test.SeleniumTests.driver;
 
 import org.openqa.selenium.By;
 
