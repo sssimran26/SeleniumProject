@@ -5,12 +5,12 @@ import org.testng.Assert;
 
 import com.aventstack.extentreports.Status;
 
-import static Test.SeleniumTest.*;
+import static Test.SeleniumTests.*;
 
-import static Test.SeleniumTest.driver;
+import static Test.SeleniumTests.driver;
 
 import java.io.IOException;
-public class ProductPage {
+public class ProductPageTest {
 	
 	public static String formalShoes_xpath="/html/body/div[2]/center/h2";
 	public static String sportsShoes_xpath="/html/body/div[3]/center/h2";
