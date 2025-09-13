@@ -1,4 +1,4 @@
-package Pages;
+package Test;
 
 import static Test.SeleniumTest.driver;
 
