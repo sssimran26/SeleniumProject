@@ -28,7 +28,9 @@ public class SeleniumTests {
 		// TODO Auto-generated method stub
 		driver=new ChromeDriver();
 		driver.get("https://anupdamoda.github.io/AceOnlineShoePortal/index.html");
-		ExtentSparkReporter spark=new ExtentSparkReporter("target/Spark.html");
+		//ExtentSparkReporter spark=new ExtentSparkReporter("target/Spark.html");
+		ExtentSparkReporter spark = new ExtentSparkReporter("target/ExtentReports/Spark.html");
+
 		extent.attachReporter(spark);
 		HomePageTest.click_hamburger_menu();
 		HomePageTest.click_onlineproduct_link();
