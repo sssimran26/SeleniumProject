@@ -13,6 +13,8 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.testng.annotations.*;
 import Test.HomePageTest;
 import Test.ProductPageTest;
+import org.apache.commons.io.FileUtils;
+
 
 public class SeleniumTests {
 	//private static final String FileUtils = null;
@@ -37,11 +39,23 @@ public class SeleniumTests {
 	}
 	public static String capture(WebDriver driver) throws IOException,IOException{
 		File scrFile =((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		File Dest =new File("src/.../ExecImages/"+ System.currentTimeMillis()+".png");
-		String errflpath=Dest.getAbsolutePath();
+		//File dest =new File("src/.../ExecImages/"+ System.currentTimeMillis()+".png");
+		File dir =new File("target/ExtentReports/screenshots/");
+		  if (!dir.exists()) {
+	            dir.mkdirs();
+	        }
+		//String errflpath=Dest.getAbsolutePath();
 		//FileUtils.copyFile(scrFile,Dest);
-		return errflpath;		
+		//return errflpath;	
+		String filePath = "target/ExtentReports/screenshots/" + System.currentTimeMillis() + ".png";
+        File dest = new File(filePath);
+
+        FileUtils.copyFile(scrFile, dest);
+
+        return dest.getAbsolutePath();
 	}
+	
+	
    @Test
    void validateTitle_OnlineProducts() throws IOException {
 	   test=extent.createTest("Validate Shoe Title on Product Page","This test validates that the different Shoetypes are correct on Online Products");
