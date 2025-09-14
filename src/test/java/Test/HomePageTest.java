@@ -4,7 +4,7 @@ import static Test.SeleniumTests.driver;
 
 import org.openqa.selenium.By;
 
-public class HomePage {
+public class HomePageTest {
    public static String hamburger_menu_xpath ="//*[@id=\"menuToggle\"]/input";
 
    public static String onlineproduct_link_xpath ="//*[@id=\"menu\"]/a[3]/li";
