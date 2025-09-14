@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="AutomationSuite">
-    <test name="GoogleSearchTest">
+    <test name="Selenium Automation Test">
         <classes>
-            <class name="first.firstclass"/>
+            <class name="Test.SeleniumTests"/>
         </classes>
     </test>
 </suite>
