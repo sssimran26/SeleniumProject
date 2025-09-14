@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.*;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.testng.annotations.*;
-import Test.HomePage;
+import Test.HomePageTest;
 import Test.ProductPageTest;
 
 public class SeleniumTests {
@@ -30,8 +30,8 @@ public class SeleniumTests {
 		driver.get("https://anupdamoda.github.io/AceOnlineShoePortal/index.html");
 		ExtentSparkReporter spark=new ExtentSparkReporter("target/Spark.html");
 		extent.attachReporter(spark);
-		HomePage.click_hamburger_menu();
-		HomePage.click_onlineproduct_link();
+		HomePageTest.click_hamburger_menu();
+		HomePageTest.click_onlineproduct_link();
 	}
 	public static String capture(WebDriver driver) throws IOException,IOException{
 		File scrFile =((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
