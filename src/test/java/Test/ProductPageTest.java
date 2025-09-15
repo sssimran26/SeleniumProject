@@ -1,6 +1,7 @@
 package Test;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -29,9 +30,10 @@ public class ProductPageTest {
     if(expectedTitleFS.equals(actualTitleFS)) {
     	test.log(Status.PASS,"Test Passed for title verification of formal shoes"); 
     	test.log(Status.PASS, test.addScreenCaptureFromPath(capture(driver))+"Test Passed");
-    }else if(false) 
-    { test.log(Status.FAIL,"test fail");
     }
+    //else if(false) 
+    //{ test.log(Status.FAIL,"test fail");
+   // }
     }
     public static void sportsShoes_verifyTitle() throws IOException {
     	String expectedTitleSS="Sports Shoes";
@@ -56,6 +58,7 @@ public class ProductPageTest {
     	String actualFirstFormalShoe=driver.findElement(By.xpath(formalShoesfirstname_xapth)).getText();
     	Assert.assertEquals(expectedFirstFormalShoe.trim(), actualFirstFormalShoe.trim());
     	 if(expectedFirstFormalShoe.equals(actualFirstFormalShoe)) {
+    		 ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)");
     	    	test.log(Status.PASS,"Test Passed for title verification of formal shoes"); 	
     	    }
 
@@ -66,6 +69,7 @@ public class ProductPageTest {
     	String actualFirstSportsShoe=driver.findElement(By.xpath(sportsShoesfirstname_xapth)).getText();
     	Assert.assertEquals(expectedFirstSportsShoe.trim(), actualFirstSportsShoe.trim());
     	 if(expectedFirstSportsShoe.equals(actualFirstSportsShoe)) {
+    		 ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)");
     	    	test.log(Status.PASS,"Test Passed for title verification of formal shoes"); 	
     	    }
     	
@@ -76,6 +80,7 @@ public class ProductPageTest {
     	String actualFirstSneakersShoe=driver.findElement(By.xpath(sneakersShoesfirstname_xapth)).getText();
     	Assert.assertEquals(expectedFirstSneakersShoe.trim(), actualFirstSneakersShoe.trim());
     	 if(expectedFirstSneakersShoe.equals(actualFirstSneakersShoe)) {
+    		 ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)");
     	    	test.log(Status.PASS,"Test Passed for title verification of formal shoes"); 	
     	    }
     }
