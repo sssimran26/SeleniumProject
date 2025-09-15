@@ -69,7 +69,7 @@ public class SeleniumTests {
 	   extent.flush();	   
    }   
    @Test
-   void validateFirstFormalShoes() {
+   void validateFirstFormalShoes() throws IOException {
 	   test=extent.createTest("Validate First Formal Shoe","This test validates that the first formal shoe");
 	   ProductPageTest.formalShoes_firstname_verify();
 	   extent.flush();
@@ -77,7 +77,7 @@ public class SeleniumTests {
 	  
    }
    @Test
-   void validateFirstSportsShoes() {
+   void validateFirstSportsShoes() throws IOException {
 	   test=extent.createTest("Validate First Sports Shoe","This test validates that the first sports shoe");
 	   ProductPageTest.sportsShoes_firstname_verify();
 	   extent.flush();

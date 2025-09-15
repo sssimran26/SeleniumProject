@@ -53,7 +53,7 @@ public class ProductPageTest {
     	test.log(Status.PASS,"Test Passed for title verification of formal shoes"); 	
     }
     }
-    public static void formalShoes_firstname_verify() {
+    public static void formalShoes_firstname_verify() throws IOException {
     	String expectedFirstFormalShoe="Classic Cheltenham";
     	driver.findElement(By.xpath(formalShoesdropdown_xapth)).click();
     	String actualFirstFormalShoe=driver.findElement(By.xpath(formalShoesfirstname_xapth)).getText();
@@ -61,7 +61,7 @@ public class ProductPageTest {
     	 if(expectedFirstFormalShoe.equals(actualFirstFormalShoe)) {
     		 WebElement element = driver.findElement(By.xpath(formalShoes_xpath));
     		 ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)");
-    	    	test.log(Status.PASS,"Test Passed for title verification of formal shoes"); 	
+    		 test.log(Status.PASS, test.addScreenCaptureFromPath(capture(driver))+"Test Passed");	
     	    }
 
     }
@@ -74,6 +74,8 @@ public class ProductPageTest {
     		 WebElement element = driver.findElement(By.xpath(sportsShoes_xpath));
     		 ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)");
     	    	//test.log(Status.PASS,"Test Passed for title verification of Sports shoes"); 	
+    	    	//test.log(Status.PASS, test.addScreenCaptureFromPath(capture(driver))+"Test Passed");
+    	    	
     	    	test.log(Status.PASS, test.addScreenCaptureFromPath(capture(driver))+"Test Passed");
     	    }
     	
