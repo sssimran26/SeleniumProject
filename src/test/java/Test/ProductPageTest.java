@@ -65,15 +65,16 @@ public class ProductPageTest {
     	    }
 
     }
-    public static void sportsShoes_firstname_verify() {
+    public static void sportsShoes_firstname_verify() throws IOException {
     	String expectedFirstSportsShoe="Ultimate";
     	driver.findElement(By.xpath(sportsShoesdropdown_xapth)).click();
     	String actualFirstSportsShoe=driver.findElement(By.xpath(sportsShoesfirstname_xapth)).getText();
     	Assert.assertEquals(expectedFirstSportsShoe.trim(), actualFirstSportsShoe.trim());
     	 if(expectedFirstSportsShoe.equals(actualFirstSportsShoe)) {
-    		 WebElement element = driver.findElement(By.xpath(formalShoes_xpath));
+    		 WebElement element = driver.findElement(By.xpath(sportsShoes_xpath));
     		 ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)");
-    	    	test.log(Status.PASS,"Test Passed for title verification of formal shoes"); 	
+    	    	//test.log(Status.PASS,"Test Passed for title verification of Sports shoes"); 	
+    	    	test.log(Status.PASS, test.addScreenCaptureFromPath(capture(driver))+"Test Passed");
     	    }
     	
     }
@@ -83,7 +84,7 @@ public class ProductPageTest {
     	String actualFirstSneakersShoe=driver.findElement(By.xpath(sneakersShoesfirstname_xapth)).getText();
     	Assert.assertEquals(expectedFirstSneakersShoe.trim(), actualFirstSneakersShoe.trim());
     	 if(expectedFirstSneakersShoe.equals(actualFirstSneakersShoe)) {
-    		 WebElement element = driver.findElement(By.xpath(formalShoes_xpath));
+    		 WebElement element = driver.findElement(By.xpath(sneakersShoes_xpath));
     		 ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)");
     	    	test.log(Status.PASS,"Test Passed for title verification of formal shoes"); 	
     	    }

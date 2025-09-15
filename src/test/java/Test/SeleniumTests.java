@@ -3,10 +3,11 @@ package Test;
 import java.io.File;
 import java.io.IOException;
 
-import org.openqa.selenium.JavascriptExecutor;
+
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+
 //import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
@@ -40,7 +41,7 @@ public class SeleniumTests {
 		HomePageTest.click_onlineproduct_link();
 	}
 	public static String capture(WebDriver driver) throws IOException,IOException{
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true)");
+		
 		File scrFile =((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		//File dest =new File("src/.../ExecImages/"+ System.currentTimeMillis()+".png");
 		File dir =new File("target/ExtentReports/screenshots/");
