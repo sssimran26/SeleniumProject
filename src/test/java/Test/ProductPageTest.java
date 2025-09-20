@@ -27,13 +27,21 @@ public class ProductPageTest {
 	public static String formalShoes_xpath = "//h2[contains(text(),'Formal Shoes')]";
 	public static String sportsShoes_xpath = "//h2[contains(text(),'Sports Shoes')]";
 	public static String sneakersShoes_xpath = "//h2[contains(text(),'Sneakers')]";
+//
+//	public static String formalShoesdropdown_xpath="/html/body/div[2]/center/div";
+//	public static String sportsShoesdropdown_xpath="/html/body/div[3]/center/div";
+//	public static String sneakersShoesdropdown_xpath="/html/body/div[4]/center/div";
+//	public static String formalShoesfirstname_xpath="/html/body/div[2]/table/tbody/tr[1]/td[1]";
+//	public static String sportsShoesfirstname_xpath="/html/body/div[3]/table/tbody/tr[1]/td[1]";
+//	public static String sneakersShoesfirstname_xpath="/html/body/div[4]/table/tbody/tr[1]/td[1]";
+	public static String formalShoesdropdown_xpath = "//h2[contains(text(),'Formal Shoes')]/following-sibling::div";
+	public static String sportsShoesdropdown_xpath = "//h2[contains(text(),'Sports Shoes')]/following-sibling::div";
+	public static String sneakersShoesdropdown_xpath = "//h2[contains(text(),'Sneakers')]/following-sibling::div";
 
-	public static String formalShoesdropdown_xpath="/html/body/div[2]/center/div";
-	public static String sportsShoesdropdown_xpath="/html/body/div[3]/center/div";
-	public static String sneakersShoesdropdown_xpath="/html/body/div[4]/center/div";
-	public static String formalShoesfirstname_xpath="/html/body/div[2]/table/tbody/tr[1]/td[1]";
-	public static String sportsShoesfirstname_xpath="/html/body/div[3]/table/tbody/tr[1]/td[1]";
-	public static String sneakersShoesfirstname_xpath="/html/body/div[4]/table/tbody/tr[1]/td[1]";
+	public static String formalShoesfirstname_xpath = "//h2[contains(text(),'Formal Shoes')]/following::table[1]/tbody/tr[1]/td[1]";
+	public static String sportsShoesfirstname_xpath = "//h2[contains(text(),'Sports Shoes')]/following::table[1]/tbody/tr[1]/td[1]";
+	public static String sneakersShoesfirstname_xpath = "//h2[contains(text(),'Sneakers')]/following::table[1]/tbody/tr[1]/td[1]";
+
     public static void formalShoes_verifyTitle() throws IOException {
     String expectedTitleFS="Formal Shoes";
     String actualTitleFS=driver.findElement(By.xpath(formalShoes_xpath)).getText();
