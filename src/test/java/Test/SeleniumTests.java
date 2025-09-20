@@ -30,15 +30,21 @@ public class SeleniumTests {
 		HomePageTest.click_onlineproduct_link();
 	}
 	public static String capture(WebDriver driver) throws IOException,IOException{		
-		File scrFile =((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		File dir =new File("target/ExtentReports/screenshots/");
-		  if (!dir.exists()) {
-	            dir.mkdirs();
-	        }
-		String filePath = "target/ExtentReports/screenshots/" + System.currentTimeMillis() + ".png";
-        File dest = new File(filePath);
-        FileUtils.copyFile(scrFile, dest);
-        return dest.getAbsolutePath();
+//		File scrFile =((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+//		File dir =new File("target/ExtentReports/screenshots/");
+//		  if (!dir.exists()) {
+//	            dir.mkdirs();
+//	        }
+//		String filePath = "target/ExtentReports/screenshots/" + System.currentTimeMillis() + ".png";
+//        File dest = new File(filePath);
+//        FileUtils.copyFile(scrFile, dest);
+//        return dest.getAbsolutePath();
+		TakesScreenshot ts = (TakesScreenshot) driver;
+        File src = ts.getScreenshotAs(OutputType.FILE);
+        String path = System.getProperty("user.dir") + "/screenshots/" + System.currentTimeMillis() + ".png";
+        File dest = new File(path);
+        FileUtils.copyFile(src, dest);
+        return path;
 	}	
    @Test
    void validateTitle_OnlineProducts() throws IOException {
@@ -49,19 +55,19 @@ public class SeleniumTests {
 	  // extent.flush();	   
    }   
    @Test
-   void validateFirstFormalShoes() throws IOException {
+   void validateFirstFormalShoes() throws IOException, InterruptedException {
 	   test=extent.createTest("Validate First Formal Shoe","This test validates that the first formal shoe");
 	   ProductPageTest.formalShoes_firstname_verify();
 	  // extent.flush();	  
    }
    @Test
-   void validateFirstSportsShoes() throws IOException {
+   void validateFirstSportsShoes() throws IOException, InterruptedException {
 	   test=extent.createTest("Validate First Sports Shoe","This test validates that the first sports shoe");
 	   ProductPageTest.sportsShoes_firstname_verify();
 	   //extent.flush();
 }
   @Test
-  void validateFirstSneakersShoes() throws IOException {
+  void validateFirstSneakersShoes() throws IOException, InterruptedException {
 	  test=extent.createTest("Validate First Sneakers Shoe","This test validates that the first sneakers shoe");
 	  ProductPageTest.SneakersShoes_firstname_verify();
 	 // extent.flush();

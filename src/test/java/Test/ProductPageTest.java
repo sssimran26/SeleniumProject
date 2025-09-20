@@ -1,6 +1,8 @@
 package Test;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 //import org.openqa.selenium.JavascriptExecutor;
 //import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -32,6 +34,9 @@ public class ProductPageTest {
     	 Assert.assertEquals(expectedTitleFS, actualTitleFS);
     	test.log(Status.PASS, "Formal Shoes Title Verified: " + actualTitleFS, MediaEntityBuilder.createScreenCaptureFromPath(capture(driver)).build());
     } catch (AssertionError e) {
+    	WebElement element = driver.findElement(By.xpath(formalShoes_xpath)); // your first shoe element
+    	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+
         test.log(Status.FAIL, "Expected: " + expectedTitleFS + " but Found: " + actualTitleFS,
         		MediaEntityBuilder.createScreenCaptureFromPath(capture(driver)).build());
         throw e; // rethrow to fail test
@@ -41,15 +46,13 @@ public class ProductPageTest {
     public static void sportsShoes_verifyTitle() throws IOException {
     	String expectedTitleSS="Sports Shoes";
         String actualTitleSS=driver.findElement(By.xpath(sportsShoes_xpath)).getText();
-//        Assert.assertEquals(expectedTitleSS, actualTitleSS);
-//        if(expectedTitleSS.equals(actualTitleSS)) {
-//        	test.log(Status.PASS, test.addScreenCaptureFromPath(capture(driver))+"Test Passed");
-//        }
-//    }
     try {
    	 Assert.assertEquals(expectedTitleSS, actualTitleSS);
    	test.log(Status.PASS, "Sports Shoes Title Verified: " + actualTitleSS, MediaEntityBuilder.createScreenCaptureFromPath(capture(driver)).build());
    } catch (AssertionError e) {
+	   WebElement element = driver.findElement(By.xpath(sportsShoes_xpath)); // your first shoe element
+	   ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+
        test.log(Status.FAIL, "Expected: " + expectedTitleSS + " but Found: " + actualTitleSS,
        		MediaEntityBuilder.createScreenCaptureFromPath(capture(driver)).build());
        throw e; // rethrow to fail test
@@ -58,32 +61,24 @@ public class ProductPageTest {
     public static void sneakers_verifyTitle() throws IOException {
     String expectedTitleSN="Sneakers";
     String actualTitleSN=driver.findElement(By.xpath(sneakersShoes_xpath)).getText();
-//    Assert.assertEquals(expectedTitleSN, actualTitleSN);
-//    if(expectedTitleSN.equals(actualTitleSN)) {
-//    	test.log(Status.PASS, test.addScreenCaptureFromPath(capture(driver))+"Test Passed");	
-//    }
-//    }
     try {
       	 Assert.assertEquals(expectedTitleSN, actualTitleSN);
       	test.log(Status.PASS, "Sports Shoes Title Verified: " + actualTitleSN, MediaEntityBuilder.createScreenCaptureFromPath(capture(driver)).build());
       } catch (AssertionError e) {
+    	  WebElement element = driver.findElement(By.xpath(sneakersShoes_xpath)); // your first shoe element
+    	  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+
           test.log(Status.FAIL, "Expected: " + expectedTitleSN + " but Found: " + actualTitleSN,
           		MediaEntityBuilder.createScreenCaptureFromPath(capture(driver)).build());
           throw e; // rethrow to fail test
       }
    }
     
-    public static void formalShoes_firstname_verify() throws IOException {
+    public static void formalShoes_firstname_verify() throws IOException, InterruptedException {
     	String expectedFirstFormalShoe="Classic Cheltenham";
     	driver.findElement(By.xpath(formalShoesdropdown_xpath)).click();
+    	Thread.sleep(500);
     	String actualFirstFormalShoe=driver.findElement(By.xpath(formalShoesfirstname_xpath)).getText();
-//    	Assert.assertEquals(expectedFirstFormalShoe.trim(), actualFirstFormalShoe.trim());
-//    	 if(expectedFirstFormalShoe.equals(actualFirstFormalShoe)) {
-//    		 WebElement element = driver.findElement(By.xpath(formalShoes_xpath));
-//    		 ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)");
-//    		 test.log(Status.PASS, test.addScreenCaptureFromPath(capture(driver))+"Test Passed");	
-//    	    }
-//    }
     try {
     	Assert.assertEquals(expectedFirstFormalShoe.trim(), actualFirstFormalShoe.trim());
       	test.log(Status.PASS, "First Formal Shoes: " + actualFirstFormalShoe, MediaEntityBuilder.createScreenCaptureFromPath(capture(driver)).build());
@@ -94,17 +89,11 @@ public class ProductPageTest {
       }
    }
     
-    public static void sportsShoes_firstname_verify() throws IOException {
+    public static void sportsShoes_firstname_verify() throws IOException, InterruptedException {
     	String expectedFirstSportsShoe="Ultimate";
     	driver.findElement(By.xpath(sportsShoesdropdown_xpath)).click();
+    	Thread.sleep(500);
     	String actualFirstSportsShoe=driver.findElement(By.xpath(sportsShoesfirstname_xpath)).getText();
-//    	Assert.assertEquals(expectedFirstSportsShoe.trim(), actualFirstSportsShoe.trim());
-//    	 if(expectedFirstSportsShoe.equals(actualFirstSportsShoe)) {
-//    		 WebElement element = driver.findElement(By.xpath(sportsShoes_xpath));
-//    		 ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)"); 	    	
-//    	    	test.log(Status.PASS, test.addScreenCaptureFromPath(capture(driver))+"Test Passed");
-//    	    }    	
-//    }
     try {
     	Assert.assertEquals(expectedFirstSportsShoe.trim(), actualFirstSportsShoe.trim());
       	test.log(Status.PASS, "First Sports Shoes: " + actualFirstSportsShoe, MediaEntityBuilder.createScreenCaptureFromPath(capture(driver)).build());
@@ -115,17 +104,12 @@ public class ProductPageTest {
       }
    }
     
-    public static void SneakersShoes_firstname_verify() throws IOException {
+    public static void SneakersShoes_firstname_verify() throws IOException, InterruptedException {
     	String expectedFirstSneakersShoe="Archivo";
     	driver.findElement(By.xpath(SneakersShoesdropdown_xpath)).click();
+    	Thread.sleep(500);
     	String actualFirstSneakersShoe=driver.findElement(By.xpath(sneakersShoesfirstname_xpath)).getText();
-//    	Assert.assertEquals(expectedFirstSneakersShoe.trim(), actualFirstSneakersShoe.trim());
-//    	 if(expectedFirstSneakersShoe.equals(actualFirstSneakersShoe)) {
-//    		 WebElement element = driver.findElement(By.xpath(sneakersShoes_xpath));
-//    		 ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)");
-//    		  test.log(Status.PASS, test.addScreenCaptureFromPath(capture(driver))+"Test Passed");	
-//    	    }
-//    }
+
     try {
     	Assert.assertEquals(expectedFirstSneakersShoe.trim(), actualFirstSneakersShoe.trim());
       	test.log(Status.PASS, "First Sports Shoes: " + actualFirstSneakersShoe, MediaEntityBuilder.createScreenCaptureFromPath(capture(driver)).build());
