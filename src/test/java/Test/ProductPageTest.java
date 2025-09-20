@@ -76,7 +76,7 @@ public class ProductPageTest {
     
     public static void formalShoes_firstname_verify() throws IOException, InterruptedException {
     	String expectedFirstFormalShoe="Classic Cheltenham";
-    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(formalShoesfirstname_xpath)));
 
     	    WebElement element = driver.findElement(By.xpath(formalShoes_xpath));
@@ -96,13 +96,11 @@ public class ProductPageTest {
     
     public static void sportsShoes_firstname_verify() throws IOException, InterruptedException {
     	String expectedFirstSportsShoe="Ultimate";
+    	driver.findElement(By.xpath(sportsShoesfirstname_xpath)).click();
+    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+    	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(sportsShoesfirstname_xpath)));
     	WebElement element = driver.findElement(By.xpath(sportsShoes_xpath));
     	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-
-    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-    	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(sportsShoesfirstname_xpath)));
-
-
     	String actualFirstSportsShoe=driver.findElement(By.xpath(sportsShoesfirstname_xpath)).getText();
     try {
     	Assert.assertEquals(expectedFirstSportsShoe.trim(), actualFirstSportsShoe.trim());
@@ -117,17 +115,11 @@ public class ProductPageTest {
     public static void sneakersShoes_firstname_verify() throws IOException, InterruptedException {
     	String expectedFirstSneakersShoe="Archivo";
     	driver.findElement(By.xpath(sneakersShoesdropdown_xpath)).click();
-
+    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+    	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(sneakersShoesfirstname_xpath)));
     	WebElement element = driver.findElement(By.xpath(sneakersShoes_xpath));
     	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-
-    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-    	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(sneakersShoesfirstname_xpath)));
-
-
-    	
     	String actualFirstSneakersShoe=driver.findElement(By.xpath(sneakersShoesfirstname_xpath)).getText();
-
     try {
     	Assert.assertEquals(expectedFirstSneakersShoe.trim(), actualFirstSneakersShoe.trim());
       	test.log(Status.PASS, "First Sneakers Shoes: " + actualFirstSneakersShoe, MediaEntityBuilder.createScreenCaptureFromPath(capture(driver)).build());
