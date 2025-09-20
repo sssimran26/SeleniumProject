@@ -30,21 +30,22 @@ public class SeleniumTests {
 		HomePageTest.click_onlineproduct_link();
 	}
 	public static String capture(WebDriver driver) throws IOException,IOException{		
-//		File scrFile =((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-//		File dir =new File("target/ExtentReports/screenshots/");
-//		  if (!dir.exists()) {
-//	            dir.mkdirs();
-//	        }
-//		String filePath = "target/ExtentReports/screenshots/" + System.currentTimeMillis() + ".png";
-//        File dest = new File(filePath);
-//        FileUtils.copyFile(scrFile, dest);
-//        return dest.getAbsolutePath();
-		TakesScreenshot ts = (TakesScreenshot) driver;
-        File src = ts.getScreenshotAs(OutputType.FILE);
-        String path = System.getProperty("user.dir") + "/screenshots/" + System.currentTimeMillis() + ".png";
-        File dest = new File(path);
-        FileUtils.copyFile(src, dest);
-        return path;
+		File scrFile =((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		File dir =new File("target/ExtentReports/screenshots/");
+		  if (!dir.exists()) {
+	            dir.mkdirs();
+	        }
+		String filePath = "target/ExtentReports/screenshots/" + System.currentTimeMillis() + ".png";
+        File dest = new File(filePath);
+        FileUtils.copyFile(scrFile, dest);
+        return dest.getAbsolutePath();
+//		TakesScreenshot ts = (TakesScreenshot) driver;
+//        File src = ts.getScreenshotAs(OutputType.FILE);
+//        //String path = System.getProperty("user.dir") + "/screenshots/" + System.currentTimeMillis() + ".png";
+//        String filePath = "target/ExtentReports/screenshots/" + System.currentTimeMillis() + ".png";
+//        File dest = new File(filepath);
+//        FileUtils.copyFile(src, dest);
+//        return filepath;
 	}	
    @Test
    void validateTitle_OnlineProducts() throws IOException {
