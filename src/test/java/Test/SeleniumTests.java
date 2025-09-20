@@ -33,13 +33,13 @@ public class SeleniumTests {
 		HomePageTest.click_hamburger_menu();
 		HomePageTest.click_onlineproduct_link();
 	}
-	public static String capture(WebDriver driver) throws IOException,IOException{		
+	public static String capture(WebDriver driver,String testName) throws IOException{		
 		File scrFile =((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		File dir =new File("target/ExtentReports/screenshots/");
 		  if (!dir.exists()) {
 	            dir.mkdirs();
 	        }
-		String filePath = "target/ExtentReports/screenshots/" + System.currentTimeMillis() + ".png";
+		String filePath = "target/ExtentReports/screenshots/" + testName +"_"+ System.currentTimeMillis() + ".png";
         File dest = new File(filePath);
         FileUtils.copyFile(scrFile, dest);
         return dest.getAbsolutePath();
