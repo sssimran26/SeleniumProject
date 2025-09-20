@@ -21,9 +21,13 @@ import java.io.IOException;
 import java.time.Duration;
 public class ProductPageTest {
 	
-	public static String formalShoes_xpath="/html/body/div[2]/center/h2";
-	public static String sportsShoes_xpath="/html/body/div[3]/center/h2";
-	public static String sneakersShoes_xpath="/html/body/div[4]/center/h2";
+//	public static String formalShoes_xpath="/html/body/div[2]/center/h2";
+//	public static String sportsShoes_xpath="/html/body/div[3]/center/h2";
+//	public static String sneakersShoes_xpath="/html/body/div[4]/center/h2";
+	public static String formalShoes_xpath = "//h2[contains(text(),'Formal Shoes')]";
+	public static String sportsShoes_xpath = "//h2[contains(text(),'Sports Shoes')]";
+	public static String sneakersShoes_xpath = "//h2[contains(text(),'Sneakers')]";
+
 	public static String formalShoesdropdown_xpath="/html/body/div[2]/center/div";
 	public static String sportsShoesdropdown_xpath="/html/body/div[3]/center/div";
 	public static String sneakersShoesdropdown_xpath="/html/body/div[4]/center/div";
