@@ -82,7 +82,7 @@ public class ProductPageTest {
     	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(formalShoesfirstname_xpath)));
 
-    	    WebElement element = driver.findElement(By.xpath(formalShoes_xpath));
+    	    WebElement element = driver.findElement(By.xpath(formalShoesfirstname_xpath));
     	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
     	    Thread.sleep(500);
 
