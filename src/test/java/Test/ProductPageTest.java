@@ -34,8 +34,7 @@ public class ProductPageTest {
     	 Assert.assertEquals(expectedTitleFS, actualTitleFS);
     	test.log(Status.PASS, "Formal Shoes Title Verified: " + actualTitleFS, MediaEntityBuilder.createScreenCaptureFromPath(capture(driver)).build());
     } catch (AssertionError e) {
-    	WebElement element = driver.findElement(By.xpath(formalShoes_xpath)); // your first shoe element
-    	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+    	
 
         test.log(Status.FAIL, "Expected: " + expectedTitleFS + " but Found: " + actualTitleFS,
         		MediaEntityBuilder.createScreenCaptureFromPath(capture(driver)).build());
@@ -50,8 +49,7 @@ public class ProductPageTest {
    	 Assert.assertEquals(expectedTitleSS, actualTitleSS);
    	test.log(Status.PASS, "Sports Shoes Title Verified: " + actualTitleSS, MediaEntityBuilder.createScreenCaptureFromPath(capture(driver)).build());
    } catch (AssertionError e) {
-	   WebElement element = driver.findElement(By.xpath(sportsShoes_xpath)); // your first shoe element
-	   ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+	   
 
        test.log(Status.FAIL, "Expected: " + expectedTitleSS + " but Found: " + actualTitleSS,
        		MediaEntityBuilder.createScreenCaptureFromPath(capture(driver)).build());
@@ -63,10 +61,9 @@ public class ProductPageTest {
     String actualTitleSN=driver.findElement(By.xpath(sneakersShoes_xpath)).getText();
     try {
       	 Assert.assertEquals(expectedTitleSN, actualTitleSN);
-      	test.log(Status.PASS, "Sports Shoes Title Verified: " + actualTitleSN, MediaEntityBuilder.createScreenCaptureFromPath(capture(driver)).build());
+      	test.log(Status.PASS, "Sneakers Shoes Title Verified: " + actualTitleSN, MediaEntityBuilder.createScreenCaptureFromPath(capture(driver)).build());
       } catch (AssertionError e) {
-    	  WebElement element = driver.findElement(By.xpath(sneakersShoes_xpath)); // your first shoe element
-    	  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+    	  
 
           test.log(Status.FAIL, "Expected: " + expectedTitleSN + " but Found: " + actualTitleSN,
           		MediaEntityBuilder.createScreenCaptureFromPath(capture(driver)).build());
@@ -77,6 +74,8 @@ public class ProductPageTest {
     public static void formalShoes_firstname_verify() throws IOException, InterruptedException {
     	String expectedFirstFormalShoe="Classic Cheltenham";
     	driver.findElement(By.xpath(formalShoesdropdown_xpath)).click();
+    	WebElement element = driver.findElement(By.xpath(formalShoes_xpath)); // your first shoe element
+    	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
     	Thread.sleep(500);
     	String actualFirstFormalShoe=driver.findElement(By.xpath(formalShoesfirstname_xpath)).getText();
     try {
@@ -92,6 +91,8 @@ public class ProductPageTest {
     public static void sportsShoes_firstname_verify() throws IOException, InterruptedException {
     	String expectedFirstSportsShoe="Ultimate";
     	driver.findElement(By.xpath(sportsShoesdropdown_xpath)).click();
+    	WebElement element = driver.findElement(By.xpath(sportsShoes_xpath)); // your first shoe element
+ 	   ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
     	Thread.sleep(500);
     	String actualFirstSportsShoe=driver.findElement(By.xpath(sportsShoesfirstname_xpath)).getText();
     try {
@@ -107,12 +108,14 @@ public class ProductPageTest {
     public static void SneakersShoes_firstname_verify() throws IOException, InterruptedException {
     	String expectedFirstSneakersShoe="Archivo";
     	driver.findElement(By.xpath(SneakersShoesdropdown_xpath)).click();
+    	WebElement element = driver.findElement(By.xpath(sneakersShoes_xpath)); // your first shoe element
+  	  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
     	Thread.sleep(500);
     	String actualFirstSneakersShoe=driver.findElement(By.xpath(sneakersShoesfirstname_xpath)).getText();
 
     try {
     	Assert.assertEquals(expectedFirstSneakersShoe.trim(), actualFirstSneakersShoe.trim());
-      	test.log(Status.PASS, "First Sports Shoes: " + actualFirstSneakersShoe, MediaEntityBuilder.createScreenCaptureFromPath(capture(driver)).build());
+      	test.log(Status.PASS, "First Sneakers Shoes: " + actualFirstSneakersShoe, MediaEntityBuilder.createScreenCaptureFromPath(capture(driver)).build());
       } catch (AssertionError e) {
           test.log(Status.FAIL, "Expected: " + expectedFirstSneakersShoe + " but Found: " + actualFirstSneakersShoe,
           		MediaEntityBuilder.createScreenCaptureFromPath(capture(driver)).build());

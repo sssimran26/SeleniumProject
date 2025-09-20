@@ -15,16 +15,19 @@ import org.apache.commons.io.FileUtils;
 
 public class SeleniumTests {
 	public static WebDriver driver;
-	static ExtentReports report;
+	//static ExtentReports report;
 	public static ExtentTest test;
-	static ExtentReports extent =new ExtentReports();
+    static ExtentReports extent =new ExtentReports();
+//	ExtentSparkReporter spark = new ExtentSparkReporter("target/ExtentReports/Spark.html");
+//	extent.attachReporter(spark);
+
 	@BeforeSuite
 	public static void Setup() throws InterruptedException{
 		// TODO Auto-generated method stub
 		driver=new ChromeDriver();
 		driver.get("https://anupdamoda.github.io/AceOnlineShoePortal/index.html");
 		driver.manage().window().maximize();
-		ExtentSparkReporter spark = new ExtentSparkReporter("target/ExtentReports/Spark.html");
+	    ExtentSparkReporter spark = new ExtentSparkReporter("target/ExtentReports/Spark.html");
 		extent.attachReporter(spark);
 		HomePageTest.click_hamburger_menu();
 		HomePageTest.click_onlineproduct_link();
@@ -73,7 +76,12 @@ public class SeleniumTests {
 	  ProductPageTest.SneakersShoes_firstname_verify();
 	 // extent.flush();
   }
+  @AfterSuite
   public static void cleanup() {
-	  extent.flush();
+      extent.flush();      // Writes the ExtentReport HTML file
+      if (driver != null) {
+          driver.quit();   // Closes the browser
+      }
   }
+
   }
