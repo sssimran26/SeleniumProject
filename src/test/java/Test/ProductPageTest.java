@@ -3,6 +3,8 @@ package Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 //import org.openqa.selenium.JavascriptExecutor;
 //import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -16,6 +18,7 @@ import static Test.SeleniumTests.*;
 import static Test.SeleniumTests.driver;
 
 import java.io.IOException;
+import java.time.Duration;
 public class ProductPageTest {
 	
 	public static String formalShoes_xpath="/html/body/div[2]/center/h2";
@@ -23,7 +26,7 @@ public class ProductPageTest {
 	public static String sneakersShoes_xpath="/html/body/div[4]/center/h2";
 	public static String formalShoesdropdown_xpath="/html/body/div[2]/center/div";
 	public static String sportsShoesdropdown_xpath="/html/body/div[3]/center/div";
-	public static String SneakersShoesdropdown_xpath="/html/body/div[4]/center/div";
+	public static String sneakersShoesdropdown_xpath="/html/body/div[4]/center/div";
 	public static String formalShoesfirstname_xpath="/html/body/div[2]/table/tbody/tr[1]/td[1]";
 	public static String sportsShoesfirstname_xpath="/html/body/div[3]/table/tbody/tr[1]/td[1]";
 	public static String sneakersShoesfirstname_xpath="/html/body/div[4]/table/tbody/tr[1]/td[1]";
@@ -74,9 +77,12 @@ public class ProductPageTest {
     public static void formalShoes_firstname_verify() throws IOException, InterruptedException {
     	String expectedFirstFormalShoe="Classic Cheltenham";
     	driver.findElement(By.xpath(formalShoesdropdown_xpath)).click();
-    	WebElement element = driver.findElement(By.xpath(formalShoes_xpath)); // your first shoe element
-    	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-    	Thread.sleep(500);
+    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+    	WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(formalShoesdropdown_xpath)));
+    	WebElement dropdown = driver.findElement(By.xpath(formalShoesdropdown_xpath));
+    	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", dropdown);
+    	dropdown.click();
+
     	String actualFirstFormalShoe=driver.findElement(By.xpath(formalShoesfirstname_xpath)).getText();
     try {
     	Assert.assertEquals(expectedFirstFormalShoe.trim(), actualFirstFormalShoe.trim());
@@ -91,9 +97,12 @@ public class ProductPageTest {
     public static void sportsShoes_firstname_verify() throws IOException, InterruptedException {
     	String expectedFirstSportsShoe="Ultimate";
     	driver.findElement(By.xpath(sportsShoesdropdown_xpath)).click();
-    	WebElement element = driver.findElement(By.xpath(sportsShoes_xpath)); // your first shoe element
- 	   ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-    	Thread.sleep(500);
+    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+    	WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(sportsShoesdropdown_xpath)));
+    	WebElement dropdown = driver.findElement(By.xpath(sportsShoesdropdown_xpath));
+    	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", dropdown);
+    	dropdown.click();
+
     	String actualFirstSportsShoe=driver.findElement(By.xpath(sportsShoesfirstname_xpath)).getText();
     try {
     	Assert.assertEquals(expectedFirstSportsShoe.trim(), actualFirstSportsShoe.trim());
@@ -105,12 +114,19 @@ public class ProductPageTest {
       }
    }
     
-    public static void SneakersShoes_firstname_verify() throws IOException, InterruptedException {
+    public static void sneakersShoes_firstname_verify() throws IOException, InterruptedException {
     	String expectedFirstSneakersShoe="Archivo";
-    	driver.findElement(By.xpath(SneakersShoesdropdown_xpath)).click();
-    	WebElement element = driver.findElement(By.xpath(sneakersShoes_xpath)); // your first shoe element
-  	  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-    	Thread.sleep(500);
+    	driver.findElement(By.xpath(sneakersShoesdropdown_xpath)).click();
+//    	Thread.sleep(500);
+//    	WebElement element = driver.findElement(By.xpath(sneakersShoes_xpath)); // your first shoe element
+//  	  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+//    	Thread.sleep(500);
+    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+    	WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(sneakersShoesdropdown_xpath)));
+    	WebElement dropdown = driver.findElement(By.xpath(sneakersShoesdropdown_xpath));
+    	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", dropdown);
+    	dropdown.click();
+    	
     	String actualFirstSneakersShoe=driver.findElement(By.xpath(sneakersShoesfirstname_xpath)).getText();
 
     try {

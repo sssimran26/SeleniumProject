@@ -20,9 +20,10 @@ public class SeleniumTests {
     static ExtentReports extent =new ExtentReports();
 //	ExtentSparkReporter spark = new ExtentSparkReporter("target/ExtentReports/Spark.html");
 //	extent.attachReporter(spark);
+    
 
 	@BeforeSuite
-	public static void Setup() throws InterruptedException{
+	public static void  Setup() throws InterruptedException{
 		// TODO Auto-generated method stub
 		driver=new ChromeDriver();
 		driver.get("https://anupdamoda.github.io/AceOnlineShoePortal/index.html");
@@ -73,7 +74,7 @@ public class SeleniumTests {
   @Test
   void validateFirstSneakersShoes() throws IOException, InterruptedException {
 	  test=extent.createTest("Validate First Sneakers Shoe","This test validates that the first sneakers shoe");
-	  ProductPageTest.SneakersShoes_firstname_verify();
+	  ProductPageTest.sneakersShoes_firstname_verify();
 	 // extent.flush();
   }
   @AfterSuite
